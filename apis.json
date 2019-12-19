@@ -1,0 +1,60 @@
+{
+    "name": "PlanGrid",
+    "description": "<p>PlanGrid created an intuitive, sheet-based mobile construction app that keeps everyone building from the current set. Today, PlanGrid is the world's most downloaded construction app, with a five-star rating and over 2,700 App Store reviews.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/plangrid-logo.png",
+    "tags": [
+        "construction",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/plangrid\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "PlanGrid",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/plangrid-logo.png",
+            "humanURL": "https:\/\/www.plangrid.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plangrid-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/plangrid-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "https:\/\/medium.com\/plangrid-blog"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/medium.com\/feed\/plangrid-blog"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/plangrid"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/app.plangrid.com\/pricing"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/plangrid"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.plangrid.com\/"
+        }
+    ]
+}
