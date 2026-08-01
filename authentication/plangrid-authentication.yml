@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/authentication
+docs: https://developer.plangrid.com/reference/authentication
+summary:
+  types: [oauth2, http]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode, implicit]
+schemes:
+- name: OAuth2
+  type: oauth2
+  description: >-
+    OAuth 2.0 for authenticating and authorizing PlanGrid users on behalf of an application.
+    Applications must be registered with PlanGrid (contact developers@plangrid.com) with an
+    application name, logo, and list of redirect URIs. Access tokens are sent as
+    "Authorization: Bearer <access_token>".
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://io.plangrid.com/oauth/authorize
+    tokenUrl: https://io.plangrid.com/oauth/token
+    refresh: true
+  - flow: implicit
+    authorizationUrl: https://io.plangrid.com/oauth/authorize
+  scopes: [write:projects, read:profile]
+- name: ApiKeyBasic
+  type: http
+  scheme: basic
+  in: header
+  description: >-
+    HTTP Basic authentication where the API key is sent as the username and the password is left
+    blank (e.g. curl -u API_KEY:). 401 is returned when the API key is missing, 403 when the key
+    is invalid or deactivated.
+headers:
+  accept: 'application/vnd.plangrid+json; version=1'

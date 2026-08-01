@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/oauth-scopes
+docs: https://developer.plangrid.com/reference/oauth-scopes
+schemes:
+- name: OAuth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://io.plangrid.com/oauth/authorize
+    tokenUrl: https://io.plangrid.com/oauth/token
+  - flow: implicit
+    authorizationUrl: https://io.plangrid.com/oauth/authorize
+scopes:
+- scope: write:projects
+  description: >-
+    Allows the application access to view and manage project data on your behalf. This is the
+    default scope if no scope parameter is provided with an authorization request.
+  flows: [authorizationCode, implicit]
+- scope: read:profile
+  description: >-
+    Allows the application access to view the user profile, including UID, first name, last name,
+    and email. This scope is required to access the User Profile.
+  flows: [authorizationCode, implicit]

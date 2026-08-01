@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/libraries-and-sdks
+packages:
+- language: dotnet
+  registry: github
+  name: plangrid-api-net
+  url: https://github.com/plangrid/plangrid-api-net
+  official: true
+  note: >-
+    The only client library listed in the PlanGrid API "Libraries, SDKs, and Packages"
+    documentation. Published under the PlanGrid GitHub organization.

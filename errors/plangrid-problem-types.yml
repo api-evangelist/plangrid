@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/authentication
+format: json
+envelope: >-
+  Error responses are JSON objects that include a human-readable message. Rate-limit errors (429)
+  additionally return a rate-limit object with a reset timestamp.
+problems:
+- status: 401
+  title: Missing API key / unauthenticated
+  detail: No API key or access token was provided with the request.
+- status: 403
+  title: Invalid or deactivated key / forbidden
+  detail: The API key is invalid or deactivated, or the account lacks permission for the resource.
+- status: 404
+  title: Resource not found
+  detail: The requested resource does not exist or is not visible to the authenticated account.
+- status: 429
+  title: Rate limit exceeded
+  detail: >-
+    A per-second, daily, or write rate limit was exceeded. The response body carries a rate-limit
+    object whose reset field is an ISO 8601 timestamp indicating when to retry.
+- status: 204
+  title: No content
+  detail: >-
+    Returned on successful delete/removal even if the record was already removed (see Deleted
+    Records).

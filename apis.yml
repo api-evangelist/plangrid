@@ -1,8 +1,28 @@
 aid: plangrid
-name: PlanGrid *
-description: 'PlanGrid * is a company surfaced as a portfolio company of gv, initialized-capital, y-combinator
-  and added to the API Evangelist network as a stub for enrichment. Sector: enterprise. This profile is
-  a lead awaiting the enrichment pipeline.'
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/plangrid.png
+name: PlanGrid
+description: >-
+  PlanGrid is a construction productivity platform (now part of Autodesk Construction Cloud)
+  that gives field and office teams access to construction drawings, sheets, documents, photos,
+  RFIs, submittals, field reports, tasks, and punch lists on web and mobile. The PlanGrid API is
+  a REST API served from io.plangrid.com that lets developers programmatically manage projects,
+  annotations, comments, documents, photos, sheets and versions, snapshots, RFIs, submittal
+  packages, field reports, tasks and task lists, roles, and project team users. It supports
+  OAuth 2.0 (authorization code and implicit grants) as well as HTTP Basic API-key authentication,
+  media-type versioning via the Accept header, cursor-based pagination, batch requests, and
+  multi-step file upload workflows for PDFs, photos, and documents.
 url: https://raw.githubusercontent.com/api-evangelist/plangrid/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,11 +34,40 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Enterprise
-apis: []
+- Construction
+- Construction Technology
+- Project Management
+- Field Reports
+- Documents
+- RFIs
+- REST API
+- Autodesk
+apis:
+- name: PlanGrid API
+  description: >-
+    REST API for the PlanGrid construction productivity platform. Manage projects, annotations,
+    comments, documents, photos, sheets and versions, snapshots, RFIs, submittal packages, field
+    reports, tasks and task lists, roles, and project team users. Authenticates with OAuth 2.0 or
+    an HTTP Basic API key and versions via the Accept media type.
+  humanURL: https://developer.plangrid.com/
+  baseURL: https://io.plangrid.com
+  properties:
+  - type: Documentation
+    url: https://developer.plangrid.com/
+  - type: APIReference
+    url: https://developer.plangrid.com/reference/introduction
+  - type: GettingStarted
+    url: https://developer.plangrid.com/reference/getting-started-1
+  - type: Authentication
+    url: authentication/plangrid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plangrid-scopes.yml
+  - type: ChangeLog
+    url: changelog/plangrid-changelog.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,4 +75,49 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://plangrid.com
+  url: https://construction.autodesk.com/products/plangrid/
+- type: DeveloperPortal
+  url: https://developer.plangrid.com/
+- type: Documentation
+  url: https://developer.plangrid.com/
+- type: APIReference
+  url: https://developer.plangrid.com/reference/introduction
+- type: GettingStarted
+  url: https://developer.plangrid.com/reference/getting-started-1
+- type: Support
+  url: https://help.plangrid.com/
+- type: GitHubOrganization
+  url: https://github.com/plangrid
+- type: Authentication
+  url: authentication/plangrid-authentication.yml
+- type: OAuthScopes
+  url: scopes/plangrid-scopes.yml
+- type: SDKs
+  url: packages/plangrid-packages.yml
+- type: Packages
+  url: packages/plangrid-packages.yml
+- type: LLMsTxt
+  url: llms/plangrid-llms.txt
+- type: MCPServer
+  url: mcp/plangrid-mcp.yml
+- type: Conformance
+  url: conformance/plangrid-conformance.yml
+- type: ErrorCatalog
+  url: errors/plangrid-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/plangrid-lifecycle.yml
+- type: Deprecation
+  url: https://developer.plangrid.com/reference/api-versioning
+- type: ChangeLog
+  url: changelog/plangrid-changelog.yml
+- type: Conventions
+  url: conventions/plangrid-conventions.yml
+- type: DataModel
+  url: data-model/plangrid-data-model.yml
+- type: DomainSecurity
+  url: security/plangrid-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1

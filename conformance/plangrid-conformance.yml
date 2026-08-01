@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: derived
+source: https://developer.plangrid.com/reference/ (docs review)
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Documented OAuth 2.0 authorization code and implicit grants with authorize/token endpoints at
+    io.plangrid.com/oauth/*.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery or id_token documented; OAuth 2.0 only.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors are returned as JSON with human-readable messages, not application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: Cursor/link-based pagination is documented across all list endpoints.
+- id: rate-limiting
+  conforms: true
+  evidence: >-
+    Per-second (40), daily (10000), and per-6-minute write (2000) limits with a 429 response and a
+    JSON rate-limit object carrying an ISO 8601 reset timestamp.
+- id: semver
+  conforms: true
+  evidence: >-
+    API uses semantic versioning (MAJOR.MINOR.PATCH); major version selected via the Accept
+    media type header.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key header or contract is documented.

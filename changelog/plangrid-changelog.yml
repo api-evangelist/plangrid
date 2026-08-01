@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/changelog/
+scheme: semver
+current_major: 1
+docs: https://developer.plangrid.com/changelog/
+entries:
+- version: 1.16.0
+  title: Create Organization-linked Projects, Document Versioning, and Export Sheets without Annotations
+  breaking: false
+  additions:
+  - Create Project supports add_to_organization to link new projects to the API user's organization.
+  - Upload Document supports auto_version to auto-generate versions of documents sharing a name.
+  - Create Sheet Packet supports include_annotations to exclude published annotations from exports.
+  url: https://developer.plangrid.com/changelog/1160-create-organization-linked-projects-document-versioning-and-export-sheets-without-annotations
+- version: 1.15.0
+  title: New Field Report Attributes; Task Start and Closed At Dates
+  breaking: false
+  additions:
+  - New field report attributes.
+  - Task start and closed-at dates.
+  url: https://developer.plangrid.com/changelog/1150-new-field-report-attributes-task-start-and-closed-at-dates
+- version: 1.14.0
+  title: Task Creation and Field Reports
+  breaking: false
+  additions:
+  - Task creation endpoints.
+  - Field reports support.
+  url: https://developer.plangrid.com/changelog/1140-task-creation-and-field-reports
+- version: null
+  title: AWS S3 Signature Changes
+  breaking: false
+  highlights:
+  - Change to the S3 signature used in the file upload workflow.
+  url: https://developer.plangrid.com/changelog/aws-s3-signature-changes
+- version: null
+  title: TLS 1.0 Support Deprecation
+  breaking: true
+  highlights:
+  - Deprecation of TLS 1.0 support.
+  url: https://developer.plangrid.com/changelog/tls-10-support-deprecation

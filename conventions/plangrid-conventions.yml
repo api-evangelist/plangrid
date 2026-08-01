@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/
+authentication:
+  styles: [oauth2, http-basic-api-key]
+  bearer_header: 'Authorization: Bearer <access_token>'
+  api_key: HTTP Basic with API key as username, blank password
+  ref: authentication/plangrid-authentication.yml
+versioning:
+  style: media-type
+  header: 'Accept: application/vnd.plangrid+json; version=<MAJOR>'
+  ref: lifecycle/plangrid-lifecycle.yml
+pagination:
+  style: cursor
+  note: >-
+    List endpoints are paginated; follow the documented pagination links. Sheet-packet polling
+    counts against the per-second limit but not the daily limit.
+  docs: https://developer.plangrid.com/reference/pagination
+idempotency:
+  supported: false
+  note: No idempotency-key contract is documented.
+rate_limiting:
+  per_second: 40
+  daily: 10000
+  writes_per_6_minutes: 2000
+  exceeded_status: 429
+  signal: JSON rate-limit object with ISO 8601 reset timestamp (no X-RateLimit headers)
+  docs: https://developer.plangrid.com/reference/rate-limiting
+  ref: errors/plangrid-problem-types.yml
+identifiers:
+  style: uuid
+  docs: https://developer.plangrid.com/reference/unique-identifiers
+  foreign_keys: https://developer.plangrid.com/reference/foreign-keys
+file_uploads:
+  style: multi-step (initiate, upload to S3, complete)
+  docs: https://developer.plangrid.com/reference/file-uploads
+batch_requests:
+  supported: true
+  docs: https://developer.plangrid.com/reference/the-batch-request-object
+deleted_records:
+  note: List endpoints may include deleted records; deletes return 204 even if already removed.
+  docs: https://developer.plangrid.com/reference/deleted-records
+error_envelope:
+  format: JSON object with human-readable message
+  ref: errors/plangrid-problem-types.yml

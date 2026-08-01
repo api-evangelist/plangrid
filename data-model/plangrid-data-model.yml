@@ -1,0 +1,78 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/ (object reference)
+note: >-
+  Entity graph derived from PlanGrid's documented object reference. Most resources are scoped to a
+  project (belongs_to project via project_uid). Identifiers are UUIDs.
+entities:
+- name: project
+  root: true
+  has_many: [annotation, comment, document, photo, sheet, snapshot, rfi, field_report, task, task_list, submittal_item, submittal_package, role, user]
+- name: user
+  fields: [uid, first_name, last_name, email]
+- name: user_profile
+  belongs_to: user
+- name: role
+  belongs_to: project
+- name: annotation
+  belongs_to: project
+- name: comment
+  belongs_to: project
+  note: Comments can be attached to RFIs and tasks.
+- name: document
+  belongs_to: project
+  note: Uploaded via multi-step file upload; supports versioning.
+- name: photo
+  belongs_to: project
+- name: sheet
+  belongs_to: project
+  has_many: [version]
+- name: version
+  belongs_to: sheet
+- name: snapshot
+  belongs_to: project
+- name: rfi
+  belongs_to: project
+  has_many: [rfi_answer, rfi_status, rfi_history, comment]
+  references: [document, photo, snapshot]
+- name: field_report
+  belongs_to: project
+  has_many: [custom_item, equipment_entry, materials_entry, worklog_entry]
+  has_one: [weather, field_report_template]
+- name: task
+  belongs_to: project
+  belongs_to_optional: [sheet, task_list]
+  has_many: [comment, photo]
+- name: task_list
+  belongs_to: project
+  has_many: [task]
+- name: submittal_item
+  belongs_to: project
+- name: submittal_package
+  belongs_to: project
+  has_many: [submittal_package_file_group, submittal_package_history, submittal_package_review_status]
+relationships:
+- from: annotation
+  to: project
+  kind: belongs_to
+  via: project_uid
+- from: document
+  to: project
+  kind: belongs_to
+  via: project_uid
+- from: version
+  to: sheet
+  kind: belongs_to
+  via: sheet_uid
+- from: rfi_answer
+  to: rfi
+  kind: belongs_to
+  via: rfi_uid
+- from: task
+  to: task_list
+  kind: belongs_to
+  via: task_list_uid
+- from: task
+  to: sheet
+  kind: belongs_to
+  via: sheet_uid

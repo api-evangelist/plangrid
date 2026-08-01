@@ -1,0 +1,174 @@
+# PlanGrid Documentation
+
+> PlanGrid's API
+
+## API Reference
+- [Introduction](https://developer.plangrid.com/reference/introduction.md): Our promise.
+- [Support](https://developer.plangrid.com/reference/support.md): Did you try turning it off and on again?
+- [Conventions](https://developer.plangrid.com/reference/documentation-conventions.md)
+- [Libraries, SDKs, and Packages](https://developer.plangrid.com/reference/libraries-and-sdks.md): Oh my!
+- [Access](https://developer.plangrid.com/reference/access.md): Tickets?
+- [Quick Start](https://developer.plangrid.com/reference/getting-started-1.md): Get your first data out of PlanGrid faster than a Camaro can do 0-60.
+- [Basics](https://developer.plangrid.com/reference/getting-started.md): Some basic conventions we've established.
+- [Authentication](https://developer.plangrid.com/reference/authentication.md): Don’t trust strangers.
+- [API Versioning](https://developer.plangrid.com/reference/api-versioning.md): How we version the API.
+- [Deleted Records](https://developer.plangrid.com/reference/deleted-records.md): "Dawn of the Deleted"
+- [File Uploads](https://developer.plangrid.com/reference/file-uploads.md): Give us your PDFs, your GIFs, your JPEGs yearning to be rendered.
+- [Foreign Keys](https://developer.plangrid.com/reference/foreign-keys.md): Easier than getting a work visa.
+- [Pagination](https://developer.plangrid.com/reference/pagination.md): Bookmarks sold separately.
+- [Permissions](https://developer.plangrid.com/reference/permissions.md): No access for you!
+- [Rate Limiting](https://developer.plangrid.com/reference/rate-limiting.md): Happy responses come from happy servers.
+- [Timestamps and Timezones](https://developer.plangrid.com/reference/timestamps-and-timezones.md): It's always tea-time.
+- [Unique Identifiers](https://developer.plangrid.com/reference/unique-identifiers.md): You're special.
+- [The File Upload Object](https://developer.plangrid.com/reference/the-file-upload-object.md)
+- [The Shareable Object](https://developer.plangrid.com/reference/the-shareable-object.md)
+- [Why Batch Requests?](https://developer.plangrid.com/reference/why-batch-requests.md)
+- [The Batch Request Object](https://developer.plangrid.com/reference/the-batch-request-object.md)
+- [Send Batch Request](https://developer.plangrid.com/reference/send-batch-request.md)
+- [Getting Started with OAuth](https://developer.plangrid.com/reference/getting-started-with-oauth.md)
+- [Grant Type: Authorization Code](https://developer.plangrid.com/reference/authorization-code-grant-type.md)
+- [Grant Type: Implicit](https://developer.plangrid.com/reference/implicit-grant-type.md)
+- [OAuth Scopes](https://developer.plangrid.com/reference/oauth-scopes.md)
+- [The OAuth Token Object](https://developer.plangrid.com/reference/the-oauth-token-object.md)
+- [Retrieve Authorization Code](https://developer.plangrid.com/reference/retrieve-authorization-code.md): Redirect the user to PlanGrid to authorize the application. The first of a multi-step process for authenticating with OAuth 2.0. Upon user authorization, an authorization or token code will be provided based on the grant type.
+- [Retrieve Access Token](https://developer.plangrid.com/reference/retrieve-access-token.md): Once you have the `authorization_code` or a `refresh_token`, you can request the access token that will allow your application to perform API requests on behalf of the user.
+- [The Project Object](https://developer.plangrid.com/reference/the-project-object.md)
+- [Create Project](https://developer.plangrid.com/reference/create-project.md): Create a new PlanGrid project. The PlanGrid account associated with the API key is added as an admin to the project team.
+- [List All Projects](https://developer.plangrid.com/reference/list-all-projects.md): Get a list of projects where the PlanGrid account is a team member. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve a Project](https://developer.plangrid.com/reference/retrieve-a-project.md): Get a specific project by unique identifier.
+- [Update Project](https://developer.plangrid.com/reference/update-project.md): Update a PlanGrid project
+- [The Annotation Object](https://developer.plangrid.com/reference/the-annotation-object.md)
+- [Retrieve Annotations in a Project](https://developer.plangrid.com/reference/retrieve-annotations-in-a-project.md): Get a list of all annotations in a project. _All annotations_ inside a project are returned, including deleted, personal, and published annotations. Annotations are sorted by created at, most recent first. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [The Comment Object](https://developer.plangrid.com/reference/the-comment-object.md)
+- [Retrieve Comments in a Project](https://developer.plangrid.com/reference/retrieve-comments-in-a-project.md): Get a list of comments across all records in a project (most recently created first).  Results are paginated and can optionally be filtered by record type, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [The Document Object](https://developer.plangrid.com/reference/the-attachment-object.md)
+- [Supported File Types](https://developer.plangrid.com/reference/supported-file-types.md)
+- [Upload Document to Project](https://developer.plangrid.com/reference/upload-attachment-to-project.md): First of three step process for uploading a document to a project. On success, necessary information for step two and three is returned. The document record is not created until all three steps are completed. See [File Uploads](doc:file-uploads) for details.
+- [Complete Document Upload to Project](https://developer.plangrid.com/reference/complete-attachment-upload-to-project.md): Last of three step process for uploading a document to a project. On success, the new document record is created and returned. This step is handled automatically with appropriate configuration. See [File Uploads](doc:file-uploads) for details.
+- [Retrieve Documents in a Project](https://developer.plangrid.com/reference/retrieve-attachments-in-a-project.md): Get a list of documents in a project optionally filtered by folder. Results return deleted documents and are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Document in a Project](https://developer.plangrid.com/reference/retrieve-attachment-in-a-project.md): Get a document in a project.
+- [Update Document in a Project](https://developer.plangrid.com/reference/update-attachment-in-a-project.md): Update a document's metadata. If you want to change the document's file, you'll need to delete the document and upload a new one.
+- [Remove Document from Project](https://developer.plangrid.com/reference/remove-attachment-from-project.md): Removes a document from a project. If document has already been removed, a `204` is still returned. See [Deleted Records](doc:deleted-records) for details on deleted records.
+- [The Field Report Object](https://developer.plangrid.com/reference/the-field-report-object.md)
+- [The Field Report Template Object](https://developer.plangrid.com/reference/the-field-report-template-object.md)
+- [The Custom Item Object](https://developer.plangrid.com/reference/the-custom-items-object.md)
+- [The Equipment Entries Object](https://developer.plangrid.com/reference/the-equipment-entries-object.md)
+- [The Materials Entries Object](https://developer.plangrid.com/reference/the-materials-entries-object.md)
+- [The Worklog Entries Object](https://developer.plangrid.com/reference/the-worklog-entries-object.md)
+- [The Weather Object](https://developer.plangrid.com/reference/the-weather-object.md)
+- [Retrieve Field Reports in a Project](https://developer.plangrid.com/reference/retrieve-field-reports-in-a-project.md): Get a list of field reports in a project optionally filtered by report start and end date. Results return archived field reports and are paginated, see [Pagination](docs:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Field Report Templates in a Project](https://developer.plangrid.com/reference/retrieve-field-report-templates-in-a-project.md): Get a list of field report templates in a project optionally filtered by updated after and updated before dates. See [The Field Report Template Object](doc:the-field-report-template-object). Results return archived field report templates and are paginated, see [Pagination](docs:pagination) for details on how pagination works in PlanGrid's API.
+- [The Photo Object](https://developer.plangrid.com/reference/the-photo-object.md)
+- [Upload Photo to Project](https://developer.plangrid.com/reference/upload-photo-to-project.md): First of three step process for uploading a photo to a project. On success, necessary information for step two and three is returned. The photo record is not created until all three steps are completed. See [File Uploads](doc:file-uploads) for details. Currently, only PNGs and JPEGs are supported.
+- [Complete Photo Upload to Project](https://developer.plangrid.com/reference/complete-photo-upload-to-project.md): Last of three step process for uploading a photo to a project. On success, the new photo record is created and returned. This step is handled automatically with appropriate configuration. See [File Uploads](doc:file-uploads) for details.
+- [Retrieve Photos in a Project](https://developer.plangrid.com/reference/retrieve-photos-in-a-project.md): Get a list of photos in a project optionally filtered by folder. Results return deleted photos and are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Photo in a Project](https://developer.plangrid.com/reference/retrieve-photo-in-a-project.md): Get a photo in a project.
+- [Update Photo in a Project](https://developer.plangrid.com/reference/update-photo-in-a-project.md): Update a photo's metadata. If you want to change the photo's file, you'll need to delete the photo and upload a new one.
+- [Remove Photo from Project](https://developer.plangrid.com/reference/remove-photo-from-project.md): Removes a photo from a project. If photo has already been removed, a `204` is still returned. See [Deleted Records](doc:deleted-records) for details on deleted records.
+- [The RFI Object](https://developer.plangrid.com/reference/the-rfi-object.md)
+- [The RFI History Object](https://developer.plangrid.com/reference/the-rfi-history-object.md)
+- [Create RFI in a Project](https://developer.plangrid.com/reference/create-rfi-in-a-project.md): Creates an RFI on a project and sends appropriate notifications (e.g. to assignees). At least one field must be provided to successfully create an RFI.
+- [Retrieve RFIs in a Project](https://developer.plangrid.com/reference/retrieve-rfis-in-a-project.md): Get a list of RFIs in a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve RFI in a Project](https://developer.plangrid.com/reference/retrieve-rfi-in-a-project.md): Get an RFI in a project.
+- [Retrieve Documents Referenced in RFI](https://developer.plangrid.com/reference/retrieve-attachments-referenced-in-rfi.md): Get a list of documents referenced in an RFI. Document data is described in [The Document Object](doc:the-attachment-object). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Photos Referenced in RFI](https://developer.plangrid.com/reference/retrieve-photos-referenced-in-rfi.md): Get a list of photos referenced in an RFI. Photo data is described in [The Photo Object](doc:the-photo-object). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Snapshots Referenced in RFI](https://developer.plangrid.com/reference/retrieve-snapshots-referenced-in-rfi.md): Get a list of snapshots referenced in an RFI. Snapshot data is described in [The Snapshot Object](doc:the-snapshot-object). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Comments on an RFI](https://developer.plangrid.com/reference/retrieve-comments-on-an-rfi.md): Get a list of comments on an RFI. Comment data is described in [The Comment Object](doc:the-comment-object). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve RFI History](https://developer.plangrid.com/reference/retrieve-rfi-history.md): Get the change history of an RFI (includes references). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Update RFI in a Project](https://developer.plangrid.com/reference/update-rfi-in-a-project.md): Updates an RFI on a project and sends appropriate notifications (e.g. to new assignees).
+- [Reference Document in RFI](https://developer.plangrid.com/reference/reference-attachment-in-rfi.md): Creates a reference to a document on an RFI. On success, returns the document. Document data is described in [The Document Object](doc:the-attachment-object).
+- [Remove Document Reference in RFI](https://developer.plangrid.com/reference/remove-attachment-reference-in-rfi.md): Remove a reference to an document in an RFI. The document is not deleted from the project.
+- [Reference Photo in RFI](https://developer.plangrid.com/reference/reference-photo-in-rfi.md): Creates a reference to a photo on an RFI. On success, returns the photo. Photo data is described in [The Photo Object](doc:the-photo-object).
+- [Remove Photo Reference in RFI](https://developer.plangrid.com/reference/remove-photo-reference-in-rfi.md): Remove a reference to a photo in an RFI. The photo is not deleted from the project.
+- [Remove Snapshot Reference in RFI](https://developer.plangrid.com/reference/remove-snapshot-reference-in-rfi.md): Remove a reference to a snapshot in an RFI. The snapshot is not deleted from the project.
+- [The RFI Status Object](https://developer.plangrid.com/reference/the-rfi-status-object.md)
+- [Retrieve RFI Statuses in a Project](https://developer.plangrid.com/reference/retrieve-rfi-statuses-in-a-project.md): Get the list of RFI statuses defined on the project. The first element in the list is the first/topmost status shown in PlanGrid clients. PlanGrid currently supports 6 RFI statuses.
+- [Update RFI Status in a Project](https://developer.plangrid.com/reference/update-rfi-status-in-a-project.md): Updates an existing RFI status on the project.
+- [The RFI Object](https://developer.plangrid.com/reference/the-rfi-object-1.md)
+- [The RFI Annotation Object](https://developer.plangrid.com/reference/the-rfi-annotation-object.md)
+- [The RFI Answer Object](https://developer.plangrid.com/reference/the-rfi-answer-object.md)
+- [The RFI History Object](https://developer.plangrid.com/reference/the-rfi-history-object-1.md)
+- [The RFI Reference Object](https://developer.plangrid.com/reference/the-rfi-reference-object.md)
+- [Create RFI in a Project](https://developer.plangrid.com/reference/create-rfi-in-a-project-1.md): Creates an RFI on a project and sends appropriate notifications (e.g. to assignees). At least title and status_uid must be provided. See [RFI Roles and Permissions](https://help.plangrid.com/hc/en-us/articles/360024980433) for information on roles and permissions.
+- [Retrieve RFIs in a Project](https://developer.plangrid.com/reference/retrieve-rfis-in-a-project-1.md): Gets a list of RFIs in a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve RFI in a Project](https://developer.plangrid.com/reference/retrieve-rfi-in-a-project-1.md): Gets an RFI in a project. RFI data is described in [The RFI Object](doc:the-rfi-object-1).
+- [Retrieve RFI Annotations in a Project](https://developer.plangrid.com/reference/retrieve-rfi-annotations-in-a-project.md): Retrieves annotations pertaining to a specific RFI. Annotation data is described in [The RFI Annotation Object](doc:the-rfi-annotation-object).
+- [Retrieve RFI History in a Project](https://developer.plangrid.com/reference/retrieve-rfi-history-in-a-project.md): Retrieves history pertaining to a specific RFI. History data is described in [The RFI History Object](doc:the-rfi-history-object-1).
+- [Update RFI in a Project](https://developer.plangrid.com/reference/update-rfi-in-a-project-1.md): Updates an RFI on a project and sends appropriate notifications (e.g. to new assignees). See [RFI Roles and Permissions](https://help.plangrid.com/hc/en-us/articles/360024980433) for information on roles and permissions.
+- [Delete RFI in a Project](https://developer.plangrid.com/reference/delete-rfi-in-a-project.md): Deletes an RFI from a project.
+- [Create RFI Answer in a Project](https://developer.plangrid.com/reference/create-rfi-answer-in-a-project.md): Creates an answer for a specific RFI in a project. Answer data is described in [The RFI Answer Object](doc:the-rfi-answer-object). See [RFI Roles and Permissions](https://help.plangrid.com/hc/en-us/articles/360024980433) for information on roles and permissions.
+- [Get RFI Answers in a Project](https://developer.plangrid.com/reference/get-rfi-answers-in-a-project.md): Retrieves a list of answers from an RFI in a project. Answer data is described in [The RFI Answer Object](doc:the-rfi-answer-object).
+- [Update RFI Answer in a Project](https://developer.plangrid.com/reference/update-rfi-answer-in-a-project.md): Updates a specific answer to an RFI in a project. See [RFI Roles and Permissions](https://help.plangrid.com/hc/en-us/articles/360024980433) for information on roles and permissions.
+- [The RFI Return Message Object](https://developer.plangrid.com/reference/the-rfi-return-message-object.md)
+- [Create RFI Return Message in a Project](https://developer.plangrid.com/reference/create-rfi-return-message-in-a-project.md): Creates a return message and sends the RFI to a different status (return). Return message data is described in [The RFI Return Message Object](doc:the-rfi-return-message-object). See [RFI Roles and Permissions](https://help.plangrid.com/hc/en-us/articles/360024980433) for information on roles and permissions.
+- [Get RFI Return Message in a Project](https://developer.plangrid.com/reference/get-rfi-return-message-in-a-project.md): Retrieves the return message from an RFI in a project. Return message data is described in [The RFI Return Message Object](doc:the-rfi-return-message-object).
+- [The RFI Status Object](https://developer.plangrid.com/reference/the-rfi-status-object-1.md)
+- [Retrieve RFI Statuses in a Project](https://developer.plangrid.com/reference/retrieve-rfi-statuses-in-a-project-1.md): Get the list of RFI statuses defined on the project. The first element in the list is the first/topmost status shown in PlanGrid clients. PlanGrid currently supports 8 RFI statuses.
+- [Update RFI Status in a Project](https://developer.plangrid.com/reference/update-rfi-status-in-a-project-1.md): Updates an existing RFI status on the project.
+- [The Role Object](https://developer.plangrid.com/reference/the-role-object.md)
+- [Retrieve Roles on a Project](https://developer.plangrid.com/reference/retrieve-roles-on-a-project.md): Get a list of permission roles on a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Role on a Project](https://developer.plangrid.com/reference/retrieve-role-on-a-project.md): Get a permission role on a project.
+- [The Sheet Object](https://developer.plangrid.com/reference/the-sheet-object.md)
+- [Uploading a New Version](https://developer.plangrid.com/reference/uploading-a-new-version.md)
+- [The Version Upload Object](https://developer.plangrid.com/reference/the-version-upload-object.md)
+- [The File Upload Request Object](https://developer.plangrid.com/reference/the-file-upload-request-object.md)
+- [Upload Version to Project](https://developer.plangrid.com/reference/upload-version-to-project.md): First of multi-step process for uploading a new version to a project. On success, necessary information for the next step is returned. The version is not created until the final step is completed. See [Uploading a New Version](doc:uploading-a-new-version) for details. Currently, only PDFs are supported.
+- [Complete File Upload to Version](https://developer.plangrid.com/reference/complete-file-upload-to-version.md): Completes the uploading of a file containing sheet(s) in a new version. This step is handled automatically with appropriate configuration. See [File Uploads](doc:file-uploads) for details.
+- [Upload File to Version](https://developer.plangrid.com/reference/upload-file-to-version.md): Returns a [File Upload Object](doc:the-file-upload-object) to start uploading a file containing sheet(s). See [File Uploads](doc:file-uploads) for details on uploading files with the [File Upload Object](doc:the-file-upload-object). If you encounter issues uploading with the [File Upload Object](doc:the-file-upload-object) (e.g. the Amazon S3 credentials expire), you can call this endpoint again to retrieve a new [File Upload Object](doc:the-file-upload-object) (until the version upload is completed).
+- [Complete Version Upload to Project](https://developer.plangrid.com/reference/complete-version-upload-to-project.md): Completes the uploading of a new version once all files containing sheets have been uploaded.
+- [Retrieve Sheets in a Project](https://developer.plangrid.com/reference/retrieve-sheets-in-a-project.md): Get a list of sheets in a project (most recently published first). A drawing that has multiple versions has a sheet for each version (e.g. if drawing "A2.01" has four versions, the API returns four sheets with name "A2.01"). Results return deleted sheets and are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve a Sheet](https://developer.plangrid.com/reference/retrieve-a-sheet.md): Get a sheet in a project.
+- [Create Sheet Packet](https://developer.plangrid.com/reference/create-sheet-packet.md): Kicks off an asynchronous process to generate a sheet packet. On success, a [Shareable Object](doc:the-shareable-object) is returned to help you track the status of the sheet packet.
+- [Retrieve Sheet Packet](https://developer.plangrid.com/reference/retrieve-sheet-packet.md): Retrieve the [Shareable Object](doc:the-shareable-object) for an existing sheet packet. Poll this endpoint until the Shareable Object's `status` is `"complete"` or `"errored"`. *Polling counts against your per second [rate limit](doc:rate-limiting) but not your daily rate limit.*
+- [The Snapshot Object](https://developer.plangrid.com/reference/the-snapshot-object.md)
+- [Retrieve Snapshots in a Project](https://developer.plangrid.com/reference/retrieve-snapshots-in-a-project.md): Get a list of snapshots in a project. Results return deleted snapshots and are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Snapshot in a Project](https://developer.plangrid.com/reference/retrieve-snapshot-in-a-project.md): Get a snapshot in a project.
+- [Remove Snapshot from Project](https://developer.plangrid.com/reference/remove-snapshot-from-project.md): Removes a snapshot from a project. If snapshot has already been removed, a `204` is still returned. See [Deleted Records](doc:deleted-records) for details on deleted records.
+- [The Submittal Items Object](https://developer.plangrid.com/reference/the-submittal-items-object.md)
+- [The Submittal Packages Object](https://developer.plangrid.com/reference/the-submittal-packages-object.md)
+- [The Submittal Package File Groups Object](https://developer.plangrid.com/reference/the-submittal-package-file-groups-object.md)
+- [The Submittal Package History Object](https://developer.plangrid.com/reference/the-submittal-package-history-object.md)
+- [The Submittal Package Review Status Object](https://developer.plangrid.com/reference/the-submittal-package-review-status-object.md)
+- [Create Submittal Item in a Project](https://developer.plangrid.com/reference/create-submittal-item-in-a-project.md): Create a submittal item in a project.
+- [Create Submittal Package in a Project](https://developer.plangrid.com/reference/create-submittal-package-in-a-project.md): Create a submittal package in a project.
+- [Retrieve Submittal Items in a Project](https://developer.plangrid.com/reference/retrieve-submittal-items-in-a-project.md): Get a list of submittal items from a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Submittal Packages in a Project](https://developer.plangrid.com/reference/retrieve-submittal-packages-in-a-project.md): Get a list of submittal packages from a project.
+- [Retrieve Submittal Package in a Project](https://developer.plangrid.com/reference/retrieve-submittal-package-in-a-project.md): Get a specific submittal package from a project. Submittal package data is described in [The Submittal Packages Object](doc:the-submittal-packages-object).
+- [Retrieve Submittal Package History](https://developer.plangrid.com/reference/retrieve-submittal-package-history.md): Get a list of submittal packages history in a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Submittal Package File Groups in a Project](https://developer.plangrid.com/reference/retrieve-submittal-package-file-groups-in-a-project.md): Get a list of submittal package file groups in a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Submittal Package Review Status in a Project](https://developer.plangrid.com/reference/retrieve-submittal-package-review-status-in-a-project.md): Get a list of submittal package review status in a project. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Update Submittal Item in a Project](https://developer.plangrid.com/reference/update-submittal-item-in-a-project.md): Update a submittal item in a project.
+- [Update Submittal Package in a Project](https://developer.plangrid.com/reference/update-submittal-package-in-a-project.md): Update a submittal package in a project.
+- [Delete Submittal Item in a Project](https://developer.plangrid.com/reference/delete-submittal-item-in-a-project.md): Delete a submittal item in a project.
+- [Delete Submittal Package in a Project](https://developer.plangrid.com/reference/delete-submittal-package-in-a-project.md): Delete a submittal package in a project.
+- [Background](https://developer.plangrid.com/reference/sheet-versions-annotations.md)
+- [The Task Object](https://developer.plangrid.com/reference/the-issue-object.md)
+- [Create Task in a Project](https://developer.plangrid.com/reference/create-task-in-a-project.md): Create a task in a project.
+- [Retrieve Tasks in a Project](https://developer.plangrid.com/reference/retrieve-issues-in-a-project.md): Get a list of tasks in a project. _Only tasks_ that are associated with a sheet is returned by default, including deleted, archived, and personal tasks across all team members. To retrieve tasks that are _not_ associated with a sheet, set the `include_annotationless` query parameter to `true`. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Task in a Project](https://developer.plangrid.com/reference/retrieve-issue-in-a-project.md): Get a task in a project.
+- [Retrieve Comments on a Task](https://developer.plangrid.com/reference/retrieve-comments-on-an-issue.md): Get a list of comments on a task. Comment data is described in [The Comment Object](doc:the-comment-object). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve Photos on an Task](https://developer.plangrid.com/reference/retrieve-photos-on-an-issue.md): Get a list of photos added to an task. Photo data is described in [The Photo Object](doc:the-photo-object). Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Update Task in a Project](https://developer.plangrid.com/reference/update-issue-in-a-project.md): Update a task in a project.
+- [The Task List Object](https://developer.plangrid.com/reference/the-issue-list-object.md)
+- [Create Task List in a Project](https://developer.plangrid.com/reference/create-issue-list.md)
+- [Retrieve Task Lists in a Project](https://developer.plangrid.com/reference/retrieve-issue-lists.md)
+- [Retrieve Task List in a Project](https://developer.plangrid.com/reference/retrieve-issue-list.md)
+- [Update Task List in a Project](https://developer.plangrid.com/reference/update-issue-list.md)
+- [Delete Task List in a Project](https://developer.plangrid.com/reference/delete-issue-list.md)
+- [The User Object](https://developer.plangrid.com/reference/the-user-object.md)
+- [Invite User to Project Team](https://developer.plangrid.com/reference/invite-user-to-project-team.md): Add a user to the project team and send an email. If the user does not exist, the email will be invited to join PlanGrid. The PlanGrid account of your API key must be an admin on the project to invite team members.
+- [Retrieve Users on a Project Team](https://developer.plangrid.com/reference/retrieve-users-on-a-project-team.md): Get a list of users on a project's team. Users that have been removed from the project are included. Results are paginated, see [Pagination](doc:pagination) for details on how pagination works in PlanGrid's API.
+- [Retrieve User on a Project Team](https://developer.plangrid.com/reference/retrieve-user-on-a-project-team.md): Get a user from a project's team (both specified by unique identifier). You can retrieve users that have been removed from the team.
+- [Update User on a Project Team](https://developer.plangrid.com/reference/update-user-on-a-project-team.md): Update user's fields on a project's team.
+- [Remove User from Project Team](https://developer.plangrid.com/reference/remove-user-from-project-team.md): Remove a user from the project team. The PlanGrid account of your API key must be an admin on the project to remove team members.
+- [The Rate Limit Object](https://developer.plangrid.com/reference/the-rate-limit-object.md)
+- [Retrieve Rate Limits](https://developer.plangrid.com/reference/retrieve-rate-limits.md): Returns all rate limits currently applied to your API key.
+- [The User Profile Object](https://developer.plangrid.com/reference/the-user-profile-object.md)
+- [Get User Profile](https://developer.plangrid.com/reference/get-user-profile.md): Get the user profile associated with the token or API key.
+
+## Changelog
+- [AWS S3 Signature Changes](https://developer.plangrid.com/changelog/aws-s3-signature-changes.md)
+- [1.16.0: Create Organization-linked Projects, Document Versioning, and Export Sheets without Annotations](https://developer.plangrid.com/changelog/1160-create-organization-linked-projects-document-versioning-and-export-sheets-without-annotations.md)
+- [1.15.0: New Field Report Attributes; Task Start and Closed At Dates](https://developer.plangrid.com/changelog/1150-new-field-report-attributes-task-start-and-closed-at-dates.md)
+- [1.14.0: Task Creation and Field Reports](https://developer.plangrid.com/changelog/1140-task-creation-and-field-reports.md)
+- [TLS 1.0 Support Deprecation](https://developer.plangrid.com/changelog/tls-10-support-deprecation.md)

@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.plangrid.com/reference/api-versioning
+versioning:
+  scheme: media-type
+  format: MAJOR.MINOR.PATCH (semantic versioning)
+  selector: 'Accept: application/vnd.plangrid+json; version=<MAJOR>'
+  example_version: 1
+  docs: https://developer.plangrid.com/reference/api-versioning
+deprecation:
+  policy_url: https://developer.plangrid.com/reference/api-versioning
+  grace_period: 6 months
+  notice: >-
+    Major versions are deprecated over time with a 6-month grace period to migrate. Users are
+    notified by email at deprecation and monthly thereafter; access to a deprecated major version
+    ends after the grace period. Extended migration periods may be granted on request.
+status_page: null
+sla: null
+notes: >-
+  No public status page was reachable (status.plangrid.com did not resolve). PlanGrid is part of
+  Autodesk Construction Cloud; platform status may be tracked via Autodesk health channels.

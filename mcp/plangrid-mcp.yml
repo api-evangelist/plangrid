@@ -1,0 +1,53 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: https://developer.plangrid.com/reference/ (operation catalog)
+note: >-
+  No official/hosted PlanGrid MCP server was found. This is a CANDIDATE tool list derived from the
+  documented REST operations; it is a starting point for building an MCP server, not a published one.
+server:
+  name: plangrid
+  transport: http
+tools:
+- name: list_projects
+  description: Get a list of projects where the account is a team member.
+  source_operation: https://developer.plangrid.com/reference/list-all-projects
+- name: create_project
+  description: Create a new PlanGrid project.
+  source_operation: https://developer.plangrid.com/reference/create-project
+- name: get_project
+  description: Retrieve a specific project by unique identifier.
+  source_operation: https://developer.plangrid.com/reference/retrieve-a-project
+- name: update_project
+  description: Update a PlanGrid project.
+  source_operation: https://developer.plangrid.com/reference/update-project
+- name: list_rfis
+  description: Get a list of RFIs in a project.
+  source_operation: https://developer.plangrid.com/reference/retrieve-rfis-in-a-project
+- name: create_rfi
+  description: Create an RFI on a project and send notifications.
+  source_operation: https://developer.plangrid.com/reference/create-rfi-in-a-project
+- name: list_documents
+  description: Get a list of documents in a project.
+  source_operation: https://developer.plangrid.com/reference/retrieve-attachments-in-a-project
+- name: list_photos
+  description: Get a list of photos in a project.
+  source_operation: https://developer.plangrid.com/reference/retrieve-photos-in-a-project
+- name: list_sheets
+  description: Get a list of sheets in a project.
+  source_operation: https://developer.plangrid.com/reference/retrieve-sheets-in-a-project
+- name: list_field_reports
+  description: Get a list of field reports in a project.
+  source_operation: https://developer.plangrid.com/reference/retrieve-field-reports-in-a-project
+- name: create_task
+  description: Create a task in a project.
+  source_operation: https://developer.plangrid.com/reference/create-task-in-a-project
+- name: list_tasks
+  description: Get a list of tasks in a project.
+  source_operation: https://developer.plangrid.com/reference/retrieve-issues-in-a-project
+- name: get_user_profile
+  description: Get the user profile associated with the token or API key.
+  source_operation: https://developer.plangrid.com/reference/get-user-profile
+- name: get_rate_limits
+  description: Return all rate limits currently applied to your API key.
+  source_operation: https://developer.plangrid.com/reference/retrieve-rate-limits
