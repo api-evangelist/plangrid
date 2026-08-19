@@ -2,8 +2,7 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: https://developer.plangrid.com/reference/ (operation catalog)
-note: >-
-  No official/hosted PlanGrid MCP server was found. This is a CANDIDATE tool list derived from the
+note: No official/hosted PlanGrid MCP server was found. This is a CANDIDATE tool list derived from the
   documented REST operations; it is a starting point for building an MCP server, not a published one.
 server:
   name: plangrid
@@ -51,3 +50,9 @@ tools:
 - name: get_rate_limits
   description: Return all rate limits currently applied to your API key.
   source_operation: https://developer.plangrid.com/reference/retrieve-rate-limits
+deployment:
+  mode: none
+  verified: derived
+  tools: 14
+  checked: '2026-08-12'
+  source: catalog MCP census
