@@ -1,0 +1,727 @@
+openapi: 3.1.0
+info:
+  title: No API Explorer
+  version: '1.22'
+servers:
+- url: https://io.plangrid.com
+security:
+- {}
+x-readme-fauxas: true
+paths:
+  /batch:
+    post:
+      summary: Send Batch Request
+      description: ''
+      operationId: send-batch-request
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": [\n    {\n      \"status_code\": 200,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"uid\\\": \\\"43b198bb-d4f9-c302-9173-271050e424b7\\\", \\\"name\\\": \\\"1000 Issues\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Request body must be a JSON encoded string.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n  \
+                    \        \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Request must contain at least one field.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Unsupported fields are not allowed in request.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Method required to send batch request.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\"\
+                    ,\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Path required to send batch request.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Path must begin with a '/'.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Headers must be an array of objects with 'name' and 'value'.\\\"}\"\n   \
+                    \ },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Unsupported fields are not allowed in headers.\\\"}\"\n    },\n    {\n      \"status_code\": 500,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Sorry, PlanGrid's system had an error and the team has been notified. If this happens again, please contact support@plangrid.com.\\\"}\"\n    }\n  ]\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                No Requests:
+                  value: '{ "message": "There must be at least one batch request." }'
+                Too Many Requests:
+                  value: '{ "message": "The number of batch requests (:number_of_requests) must be less than or equal to 50." }'
+                Not An Array:
+                  value: '{ "message": "JSON body must be an array." }'
+              schema:
+                oneOf:
+                - title: No Requests
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: There must be at least one batch request.
+                - title: Too Many Requests
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: The number of batch requests (:number_of_requests) must be less than or equal to 50.
+                - title: Not An Array
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: JSON body must be an array.
+      deprecated: false
+  /me:
+    get:
+      summary: Get User Profile
+      description: Get the user profile associated with the token or API key.
+      operationId: get-user-profile
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"uid\": \"67ea8cedcc118902797dd3be\",\n    \"email\": \"betty@construction.com\",\n    \"first_name\": \"Betty\",\n    \"last_name\": \"Builder\"\n}"
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                    example: 67ea8cedcc118902797dd3be
+                  email:
+                    type: string
+                    example: betty@construction.com
+                  first_name:
+                    type: string
+                    example: Betty
+                  last_name:
+                    type: string
+                    example: Builder
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Invalid Scope:
+                  value: "{\n    \"message\": \"This route cannot be accessed with the provided scopes.\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: This route cannot be accessed with the provided scopes.
+      deprecated: false
+  /oauth/authorize:
+    get:
+      summary: Retrieve Authorization Code
+      description: Redirect the user to PlanGrid to authorize the application. The first of a multi-step process for authenticating with OAuth 2.0. Upon user authorization, an authorization or token code will be provided based on the grant type.
+      operationId: retrieve-authorization-code
+      parameters:
+      - name: client_id
+        in: query
+        description: A unique identifier for your application provided by PlanGrid.
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        description: Specify what grant type the endpoint returns. Use `code` for the authorization code flow or `token` for the implicit grant flow.
+        required: true
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: An arbitrary string that will be included in the response. This can be used to confirm that the request originated from your application.
+        required: true
+        schema:
+          type: string
+      - name: scope
+        in: query
+        description: Specify a group of resources an application can request access to. See [OAuth Scopes](https://developer.plangrid.com/docs/oauth-scopes) for details.
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        description: Specify a URL where the response will be redirected. Must match a value in the whitelist for this client.
+        schema:
+          type: string
+      deprecated: false
+      security: []
+  /oauth/token:
+    post:
+      summary: Retrieve Access Token
+      description: Once you have the `authorization_code` or a `refresh_token`, you can request the access token that will allow your application to perform API requests on behalf of the user.
+      operationId: retrieve-access-token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+              properties:
+                client_id:
+                  type: string
+                  description: A unique identifier for your application provided by PlanGrid.
+                client_secret:
+                  type: string
+                  description: A unique string for your application provided by PlanGrid.
+                grant_type:
+                  type: string
+                  description: Type of request. Can be either `authorization_code` or `refresh_token`.
+                code:
+                  type: string
+                  description: Required if `grant_type` is set to `authorization_code`. Must be the authorization code acquired from the `/oauth/authorize` endpoint.
+                refresh_token:
+                  type: string
+                  description: Required if `grant_type` is set to `refresh_token`. Must be the `refresh_token` provided with access token.
+                redirect_uri:
+                  type: string
+                  description: If a `redirect_uri` was provided when requesting user authorization, this must match that value.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"refresh_token\": \"a95b3fadb31941fe9b0a74cb71b721d\",\n  \"access_token\": \"oauth_8107f78b473e46dab2406cd4db3bb366\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\":  604800,\n  \"scope\": \"write:projects\"\n}"
+              schema:
+                type: object
+                properties:
+                  refresh_token:
+                    type: string
+                    example: a95b3fadb31941fe9b0a74cb71b721d
+                  access_token:
+                    type: string
+                    example: oauth_8107f78b473e46dab2406cd4db3bb366
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 604800
+                    default: 0
+                  scope:
+                    type: string
+                    example: write:projects
+      deprecated: false
+  /projects:
+    post:
+      summary: Create Project
+      description: Create a new PlanGrid project. The PlanGrid account associated with the API key is added as an admin to the project team.
+      operationId: create-project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the project. Must be at least one character long.
+                custom_id:
+                  type: string
+                  description: Project code.
+                  default: 'null'
+                type:
+                  type: string
+                  description: Project type with possible values of `general`, `manufacturing`, `power`, `water-sewer-waste`, `industrial-petroleum`, `transportation`, `hazardous-waste`, `telecom`, `education-k-12`, `education-higher`, `gov-federal`, `gov-state-local`, or `other`.
+                  default: 'null'
+                status:
+                  type: string
+                  description: Project status.
+                  default: 'null'
+                owner:
+                  type: string
+                  description: Project owner.
+                  default: 'null'
+                start_date:
+                  type: string
+                  description: Project start date. See [Timestamps and Timezones](https://developer.plangrid.com/docs/timestamps-and-timezones) for accepted date formats.
+                  default: 'null'
+                end_date:
+                  type: string
+                  description: Project end date. See [Timestamps and Timezones](https://developer.plangrid.com/docs/timestamps-and-timezones) for accepted date formats.
+                  default: 'null'
+                street_1:
+                  type: string
+                  description: Project address, street line 1.
+                  default: 'null'
+                street_2:
+                  type: string
+                  description: Project address, street line 2.
+                  default: 'null'
+                city:
+                  type: string
+                  description: Project address town or city.
+                  default: 'null'
+                region:
+                  type: string
+                  description: Project address state, province, or region.
+                  default: 'null'
+                postal_code:
+                  type: string
+                  description: Project address zip or postal code.
+                  default: 'null'
+                country:
+                  type: string
+                  description: Project address country in 2-letter ISO 3166 code.
+                  default: 'null'
+                add_to_organization:
+                  type: boolean
+                  description: Boolean indicating whether to add the project to the organization that the API user belongs to or not. By default the project is created as a personal project and not as an organization-linked project.
+                  default: false
+      responses:
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Success:
+                  value: "{\n  \"uid\": \"bafce976-8f33-437f-9c52-fb274456940f\",\n  \"name\": \"My New Construction Project.\",\n  \"custom_id\": \"1234\",\n  \"type\": \"general\",\n  \"status\": \"bidding\",\n  \"owner\": \"ACME\",\n  \"start_date\": \"2001-10-01\",\n  \"end_date\": \"2050-10-01\",\n  \"street_1\": \"350 5th Avenue\",\n  \"street_2\": null,\n  \"city\": \"New York\",\n  \"region\": \"New York\",\n  \"postal_code\": \"10118\",\n  \"country\": \"US\"  \n}\n"
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                    example: bafce976-8f33-437f-9c52-fb274456940f
+                  name:
+                    type: string
+                    example: My New Construction Project.
+                  custom_id:
+                    type: string
+                    example: '1234'
+                  type:
+                    type: string
+                    example: general
+                  status:
+                    type: string
+                    example: bidding
+                  owner:
+                    type: string
+                    example: ACME
+                  start_date:
+                    type: string
+                    example: '2001-10-01'
+                  end_date:
+                    type: string
+                    example: '2050-10-01'
+                  street_1:
+                    type: string
+                    example: 350 5th Avenue
+                  street_2: {}
+                  city:
+                    type: string
+                    example: New York
+                  region:
+                    type: string
+                    example: New York
+                  postal_code:
+                    type: string
+                    example: '10118'
+                  country:
+                    type: string
+                    example: US
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Name Missing:
+                  value: "{\n  \"message\": \"Project name required to create a project.\"\n}\n"
+                Name Blank:
+                  value: "{\n  \"message\": \"Project name must be at least one character long.\"\n}\n"
+                Invalid Custom ID:
+                  value: "{\n  \"message\": \"Custom ID must be null or a string at least one character long.\"\n}"
+                Invalid Type:
+                  value: "{\n  \"message\": \"Type (2) must be a valid project type.\"\n}"
+                Invalid Status:
+                  value: "{\n  \"message\": \"Status must be null or a string at least one character long.\"\n}"
+                Invalid Owner:
+                  value: "{\n  \"message\": \"Owner must be null or a string at least one character long.\"\n}"
+                Invalid Start Date:
+                  value: "{\n  \"message\": \"Start date (1234) must be null or a date string in ISO-8601 format (YYYY-MM-DD).\"\n}"
+                Invalid End Date:
+                  value: "{\n  \"message\": \"End date (1234) must be null or a date string in ISO-8601 format (YYYY-MM-DD).\"\n}"
+                Invalid Street 1:
+                  value: "{\n  \"message\": \"Street 1 must be null or a string at least one character long.\"\n}"
+                Invalid Street 2:
+                  value: "{\n  \"message\": \"Street 2 must be null or a string at least one character long.\"\n}"
+                Invalid City:
+                  value: "{\n  \"message\": \"City must be null or a string at least one character long.\"\n}"
+                Invalid Region:
+                  value: "{\n  \"message\": \"Postal code must be null or a string at least one character long.\"\n}"
+                Invalid Country:
+                  value: "{\n  \"message\": \"Country must be an ISO 3166 two letter country code.\"\n}"
+              schema:
+                oneOf:
+                - title: Name Missing
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Project name required to create a project.
+                - title: Name Blank
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Project name must be at least one character long.
+                - title: Invalid Custom ID
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Custom ID must be null or a string at least one character long.
+                - title: Invalid Type
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Type (2) must be a valid project type.
+                - title: Invalid Status
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Status must be null or a string at least one character long.
+                - title: Invalid Owner
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Owner must be null or a string at least one character long.
+                - title: Invalid Start Date
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Start date (1234) must be null or a date string in ISO-8601 format (YYYY-MM-DD).
+                - title: Invalid End Date
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: End date (1234) must be null or a date string in ISO-8601 format (YYYY-MM-DD).
+                - title: Invalid Street 1
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Street 1 must be null or a string at least one character long.
+                - title: Invalid Street 2
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Street 2 must be null or a string at least one character long.
+                - title: Invalid City
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: City must be null or a string at least one character long.
+                - title: Invalid Region
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Postal code must be null or a string at least one character long.
+                - title: Invalid Country
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: Country must be an ISO 3166 two letter country code.
+      deprecated: false
+    get:
+      summary: List All Projects
+      description: Get a list of projects where the PlanGrid account is a team member. Results are paginated, see [Pagination](https://developer.plangrid.com/docs/pagination) for details on how pagination works in PlanGrid's API.
+      operationId: list-all-projects
+      parameters:
+      - name: limit
+        in: query
+        description: Number of projects to retrieve. Maximum value of 50.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: skip
+        in: query
+        description: Number of projects to skip in the set of results.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: updated_after
+        in: query
+        description: Only retrieve projects created/updated after specified UTC date and time (does not count changes in records contained in project). See [Timestamps and Timezones](https://developer.plangrid.com/docs/timestamps-and-timezones) for accepted date formats.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Success:
+                  value: "{\n  \"data\": [\n    {\n      \"uid\": \"bafce976-8f33-437f-9c52-fb274456940f\",\n      \"name\": \"LA Natural History Museum\",\n      \"custom_id\": \"5678\",\n      \"type\": \"general\",\n      \"status\": \"completed\",\n      \"owner\": \"ACME\",\n      \"start_date\": \"2001-10-01\",\n      \"end_date\": \"2050-10-01\",\n      \"street_1\": \"900 Exposition Blvd\",\n      \"street_2\": null,\n      \"city\": \"Los Angeles\",\n      \"region\": \"California\",\n      \"postal_code\": \"90007\",\n      \"country\": \"US\"\n    },\n    {\n      \"uid\": \"327e8c64-a70d-433c-b4ac-d077415a5547\",\n      \"name\": \"3265 17th Street\",\n      \"custom_id\": \"1234\",\n      \"type\": \"general\",\n      \"status\": \"bidding\",\n      \"owner\": \"ACME\",\n      \"start_date\": \"2001-10-01\",\n      \"end_date\": \"2050-10-01\",\n      \"street_1\": \"3265 17th Street\",\n      \"street_2\": \"#404\",\n      \"city\": \"New York\",\n      \"region\": \"New York\"\
+                    ,\n      \"postal_code\": \"10118\",\n      \"country\": \"US\"\n    }\n  ],\n  \"total_count\": 100,\n  \"next_page_url\": \"https://io.plangrid.com/projects?skip=2&limit=2\"\n}\n"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                          example: bafce976-8f33-437f-9c52-fb274456940f
+                        name:
+                          type: string
+                          example: LA Natural History Museum
+                        custom_id:
+                          type: string
+                          example: '5678'
+                        type:
+                          type: string
+                          example: general
+                        status:
+                          type: string
+                          example: completed
+                        owner:
+                          type: string
+                          example: ACME
+                        start_date:
+                          type: string
+                          example: '2001-10-01'
+                        end_date:
+                          type: string
+                          example: '2050-10-01'
+                        street_1:
+                          type: string
+                          example: 900 Exposition Blvd
+                        street_2: {}
+                        city:
+                          type: string
+                          example: Los Angeles
+                        region:
+                          type: string
+                          example: California
+                        postal_code:
+                          type: string
+                          example: '90007'
+                        country:
+                          type: string
+                          example: US
+                  total_count:
+                    type: integer
+                    example: 100
+                    default: 0
+                  next_page_url:
+                    type: string
+                    example: https://io.plangrid.com/projects?skip=2&limit=2
+      deprecated: false
+      security: []
+  /projects/{project_uid}/rfis2/{rfi_uid}/return_messages:
+    get:
+      summary: Get RFI Return Message in a Project
+      description: Retrieves the return message from an RFI in a project. Return message data is described in [The RFI Return Message Object](https://developer.plangrid.com/docs/the-rfi-return-message-object).
+      operationId: get-rfi-return-message-in-a-project
+      parameters:
+      - name: project_uid
+        in: path
+        description: Unique identifier of project.
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Number of answers to retrieve. Maximum value of 50.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: skip
+        in: query
+        description: Number of answers to skip in the set of results.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"data\": [\n        {\n\t\"created_at\": \"2020-05-26T19:59:06.203798+00:00\",\n\t\"created_by\": {\n\t\t\"type\": \"user\",\n\t\t\"uid\": \"5c48e3dca97740498aed0692\",\n\t\t\"url\": \"https://io.plangrid.com/projects/6f27e34d-3697-0ba7-df37-67045591b53b/users/5c48e3dca97740498aed0692\"\n\t},\n\t\"is_draft\": false,\n\t\"num_references_on_create\": 0,\n\t\"references\": [],\n\t\"rfi_uid\": \"2098d23b-f825-4f96-a675-91411d56bfc6\",\n\t\"source\": \"app\",\n\t\"status\": {\n\t\t\"bucket\": \"draft_with_manager\",\n\t\t\"label\": \"Draft with manager\",\n\t\t\"uid\": \"a4577f01-3991-4487-a5d1-4eea5a541ea1\"\n\t},\n\t\"text\": \"poor poor\",\n\t\"uid\": \"8fffba85-91c5-421b-88c4-b315f3957702\",\n\t\"updated_at\": \"2020-05-26T19:59:06.203798+00:00\",\n\t\"updated_by\": {\n\t\t\"type\": \"user\",\n\t\t\"uid\": \"5c48e3dca97740498aed0692\",\n\t\t\"url\": \"https://io.plangrid.com/projects/6f27e34d-3697-0ba7-df37-67045591b53b/users/5c48e3dca97740498aed0692\"\n\t\
+                    },\n\t\"user_created_at\": \"2020-05-26T19:59:06.203798+00:00\"\n}\n    ],\n    \"next_page_url\": null,\n    \"total_count\": 1\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        created_at:
+                          type: string
+                          example: '2020-05-26T19:59:06.203798+00:00'
+                        created_by:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              example: user
+                            uid:
+                              type: string
+                              example: 5c48e3dca97740498aed0692
+                            url:
+                              type: string
+                              example: https://io.plangrid.com/projects/6f27e34d-3697-0ba7-df37-67045591b53b/users/5c48e3dca97740498aed0692
+                        is_draft:
+                          type: boolean
+                          example: false
+                          default: true
+                        num_references_on_create:
+                          type: integer
+                          example: 0
+                          default: 0
+                        references:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+                        rfi_uid:
+                          type: string
+                          example: 2098d23b-f825-4f96-a675-91411d56bfc6
+                        source:
+                          type: string
+                          example: app
+                        status:
+                          type: object
+                          properties:
+                            bucket:
+                              type: string
+                              example: draft_with_manager
+                            label:
+                              type: string
+                              example: Draft with manager
+                            uid:
+                              type: string
+                              example: a4577f01-3991-4487-a5d1-4eea5a541ea1
+                        text:
+                          type: string
+                          example: poor poor
+                        uid:
+                          type: string
+                          example: 8fffba85-91c5-421b-88c4-b315f3957702
+                        updated_at:
+                          type: string
+                          example: '2020-05-26T19:59:06.203798+00:00'
+                        updated_by:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              example: user
+                            uid:
+                              type: string
+                              example: 5c48e3dca97740498aed0692
+                            url:
+                              type: string
+                              example: https://io.plangrid.com/projects/6f27e34d-3697-0ba7-df37-67045591b53b/users/5c48e3dca97740498aed0692
+                        user_created_at:
+                          type: string
+                          example: '2020-05-26T19:59:06.203798+00:00'
+                  next_page_url: {}
+                  total_count:
+                    type: integer
+                    example: 1
+                    default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+  /rate_limits:
+    get:
+      summary: Retrieve Rate Limits
+      description: Returns all rate limits currently applied to your API key.
+      operationId: retrieve-rate-limits
+      parameters:
+      - name: limit
+        in: query
+        description: Number of request types to retrieve. Maximum value of 50.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: skip
+        in: query
+        description: Number of request types to skip in the set of results.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Success:
+                  value: "{\n  \"data\": [\n    {\n      \"request_type\": \"all\",\n      \"interval\": 1, \n      \"limit\": 40,\n      \"remaining\": 10,\n      \"reset\": \"2013-05-17T02:30:22Z\"\n    },\n    {\n      \"request_type\": \"all\",\n      \"interval\": 86400, \n      \"limit\": 10000,\n      \"remaining\": 2398,\n      \"reset\": \"2013-05-17T02:30:00Z\"\n    },\n    {\n      \"remaining\": 78,\n      \"limit\": 100,\n      \"reset\": null,\n      \"interval\": 86400,\n      \"request_type\": \"sheet_packet.create\"\n    },\n    {\n      \"request_type\": \"write\",\n      \"interval\": 360, \n      \"limit\": 2000,\n      \"remaining\": 102,\n      \"reset\": \"2013-05-17T04:30:22Z\"\n    }    \n  ],\n  \"next_page_url\": null,\n  \"total_count\": 3\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        request_type:
+                          type: string
+                          example: all
+                        interval:
+                          type: integer
+                          example: 1
+                          default: 0
+                        limit:
+                          type: integer
+                          example: 40
+                          default: 0
+                        remaining:
+                          type: integer
+                          example: 10
+                          default: 0
+                        reset:
+                          type: string
+                          example: '2013-05-17T02:30:22Z'
+                  next_page_url: {}
+                  total_count:
+                    type: integer
+                    example: 3
+                    default: 0
+      deprecated: false
+x-provenance:
+  method: searched
+  source: https://developer.plangrid.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://developer.plangrid.com/reference/create-project.md
+  - https://developer.plangrid.com/reference/get-rfi-return-message-in-a-project.md
+  - https://developer.plangrid.com/reference/get-user-profile.md
+  - https://developer.plangrid.com/reference/list-all-projects.md
+  - https://developer.plangrid.com/reference/retrieve-access-token.md
+  - https://developer.plangrid.com/reference/retrieve-authorization-code.md
+  - https://developer.plangrid.com/reference/retrieve-rate-limits.md
+  - https://developer.plangrid.com/reference/send-batch-request.md
+  merge:
+    pages: 8
+    deduped: 0
+    conflicts_kept_first: 0

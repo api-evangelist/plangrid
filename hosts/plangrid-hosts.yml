@@ -1,0 +1,67 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 5
+  own: 1
+  other_domain: 3
+  platform: 1
+  roles:
+  - other
+  - portal
+  - source
+  - support
+  - website
+hosts:
+- host: construction.autodesk.com
+  found_by:
+  - pointer
+  types:
+  - Website
+  serves: []
+  registrable_domain: autodesk.com
+  role: website
+  relation: own
+- host: developer.plangrid.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - Deprecation
+  serves:
+  - docs
+  registrable_domain: plangrid.com
+  role: portal
+  relation: other-domain
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.plangrid.com
+  found_by:
+  - pointer
+  types:
+  - Support
+  serves: []
+  registrable_domain: plangrid.com
+  role: support
+  relation: other-domain
+- host: io.plangrid.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: plangrid.com
+  role: other
+  relation: other-domain
