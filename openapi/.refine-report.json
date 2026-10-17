@@ -1,0 +1,37 @@
+{
+  "provider": "plangrid",
+  "sources": [
+    "plangrid-no-api-explorer-openapi.yml"
+  ],
+  "outputs": [
+    "plangrid-batch-api-openapi.yml",
+    "plangrid-me-api-openapi.yml",
+    "plangrid-oauth-api-openapi.yml",
+    "plangrid-projects-api-openapi.yml",
+    "plangrid-rate-limits-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/plangrid-no-api-explorer-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "plangrid-no-api-explorer-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths POST /batch -> Batch",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths GET /me -> Me",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths GET /oauth/authorize -> Oauth",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths POST /oauth/token -> Oauth",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths POST /projects -> Projects",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths GET /projects -> Projects",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths GET /projects/{project_uid}/rfis2/{rfi_uid}/return_messages -> Projects",
+    "plangrid-no-api-explorer-openapi.yml: tagged paths GET /rate_limits -> Rate Limits",
+    "plangrid-no-api-explorer-openapi.yml: declared missing tag: Batch",
+    "plangrid-no-api-explorer-openapi.yml: declared missing tag: Me",
+    "plangrid-no-api-explorer-openapi.yml: declared missing tag: Oauth",
+    "plangrid-no-api-explorer-openapi.yml: declared missing tag: Projects",
+    "plangrid-no-api-explorer-openapi.yml: declared missing tag: Rate Limits",
+    "apis.yml register: written (+5 apis, 5 total)"
+  ],
+  "skipped": []
+}

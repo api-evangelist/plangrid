@@ -1,0 +1,93 @@
+openapi: 3.2.0
+info:
+  title: No API Explorer Rate Limits API
+  version: '1.22'
+servers:
+- url: https://io.plangrid.com
+security:
+- {}
+tags:
+- name: Rate Limits
+paths:
+  /rate_limits:
+    get:
+      summary: Retrieve Rate Limits
+      description: Returns all rate limits currently applied to your API key.
+      operationId: retrieve-rate-limits
+      parameters:
+      - name: limit
+        in: query
+        description: Number of request types to retrieve. Maximum value of 50.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      - name: skip
+        in: query
+        description: Number of request types to skip in the set of results.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Success:
+                  value: "{\n  \"data\": [\n    {\n      \"request_type\": \"all\",\n      \"interval\": 1, \n      \"limit\": 40,\n      \"remaining\": 10,\n      \"reset\": \"2013-05-17T02:30:22Z\"\n    },\n    {\n      \"request_type\": \"all\",\n      \"interval\": 86400, \n      \"limit\": 10000,\n      \"remaining\": 2398,\n      \"reset\": \"2013-05-17T02:30:00Z\"\n    },\n    {\n      \"remaining\": 78,\n      \"limit\": 100,\n      \"reset\": null,\n      \"interval\": 86400,\n      \"request_type\": \"sheet_packet.create\"\n    },\n    {\n      \"request_type\": \"write\",\n      \"interval\": 360, \n      \"limit\": 2000,\n      \"remaining\": 102,\n      \"reset\": \"2013-05-17T04:30:22Z\"\n    }    \n  ],\n  \"next_page_url\": null,\n  \"total_count\": 3\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        request_type:
+                          type: string
+                          example: all
+                        interval:
+                          type: integer
+                          example: 1
+                          default: 0
+                        limit:
+                          type: integer
+                          example: 40
+                          default: 0
+                        remaining:
+                          type: integer
+                          example: 10
+                          default: 0
+                        reset:
+                          type: string
+                          example: '2013-05-17T02:30:22Z'
+                  next_page_url: {}
+                  total_count:
+                    type: integer
+                    example: 3
+                    default: 0
+      deprecated: false
+      tags:
+      - Rate Limits
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://developer.plangrid.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://developer.plangrid.com/reference/create-project.md
+  - https://developer.plangrid.com/reference/get-rfi-return-message-in-a-project.md
+  - https://developer.plangrid.com/reference/get-user-profile.md
+  - https://developer.plangrid.com/reference/list-all-projects.md
+  - https://developer.plangrid.com/reference/retrieve-access-token.md
+  - https://developer.plangrid.com/reference/retrieve-authorization-code.md
+  - https://developer.plangrid.com/reference/retrieve-rate-limits.md
+  - https://developer.plangrid.com/reference/send-batch-request.md
+  merge:
+    pages: 8
+    deduped: 0
+    conflicts_kept_first: 0

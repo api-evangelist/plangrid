@@ -1,0 +1,75 @@
+openapi: 3.2.0
+info:
+  title: No API Explorer Me API
+  version: '1.22'
+servers:
+- url: https://io.plangrid.com
+security:
+- {}
+tags:
+- name: Me
+paths:
+  /me:
+    get:
+      summary: Get User Profile
+      description: Get the user profile associated with the token or API key.
+      operationId: get-user-profile
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"uid\": \"67ea8cedcc118902797dd3be\",\n    \"email\": \"betty@construction.com\",\n    \"first_name\": \"Betty\",\n    \"last_name\": \"Builder\"\n}"
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                    example: 67ea8cedcc118902797dd3be
+                  email:
+                    type: string
+                    example: betty@construction.com
+                  first_name:
+                    type: string
+                    example: Betty
+                  last_name:
+                    type: string
+                    example: Builder
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Invalid Scope:
+                  value: "{\n    \"message\": \"This route cannot be accessed with the provided scopes.\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: This route cannot be accessed with the provided scopes.
+      deprecated: false
+      tags:
+      - Me
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://developer.plangrid.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://developer.plangrid.com/reference/create-project.md
+  - https://developer.plangrid.com/reference/get-rfi-return-message-in-a-project.md
+  - https://developer.plangrid.com/reference/get-user-profile.md
+  - https://developer.plangrid.com/reference/list-all-projects.md
+  - https://developer.plangrid.com/reference/retrieve-access-token.md
+  - https://developer.plangrid.com/reference/retrieve-authorization-code.md
+  - https://developer.plangrid.com/reference/retrieve-rate-limits.md
+  - https://developer.plangrid.com/reference/send-batch-request.md
+  merge:
+    pages: 8
+    deduped: 0
+    conflicts_kept_first: 0

@@ -139,15 +139,16 @@ common:
   url: security/plangrid-domain-security.yml
 
 apis:
-- name: PlanGrid API
-  description: REST API for the PlanGrid construction productivity platform. Manage projects, annotations, comments, documents, photos, sheets
-    and versions, snapshots, RFIs, submittal packages, field reports, tasks and task lists, roles, and project team users. Authenticates with
-    OAuth 2.0 or an HTTP Basic API key and versions via the Accept media type.
+- aid: plangrid:plangrid-batch-api
+  name: PlanGrid Batch API
+  description: The Batch API from PlanGrid — 1 operation(s) for batch.
   humanURL: https://developer.plangrid.com/
   baseURL: https://io.plangrid.com
+  tags:
+  - Batch
   properties:
-  - url: openapi/plangrid-no-api-explorer-openapi.yml
-    type: OpenAPI
+  - type: OpenAPI
+    url: openapi/plangrid-batch-api-openapi.yml
   - type: Documentation
     url: https://developer.plangrid.com/
   - type: APIReference
@@ -160,8 +161,94 @@ apis:
     url: scopes/plangrid-scopes.yml
   - type: ChangeLog
     url: changelog/plangrid-changelog.yml
-  aid: plangrid:plangrid-api
-
+- aid: plangrid:plangrid-me-api
+  name: PlanGrid Me API
+  description: The Me API from PlanGrid — 1 operation(s) for me.
+  humanURL: https://developer.plangrid.com/
+  baseURL: https://io.plangrid.com
+  tags:
+  - Me
+  properties:
+  - type: OpenAPI
+    url: openapi/plangrid-me-api-openapi.yml
+  - type: Documentation
+    url: https://developer.plangrid.com/
+  - type: APIReference
+    url: https://developer.plangrid.com/reference/introduction
+  - type: GettingStarted
+    url: https://developer.plangrid.com/reference/getting-started-1
+  - type: Authentication
+    url: authentication/plangrid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plangrid-scopes.yml
+  - type: ChangeLog
+    url: changelog/plangrid-changelog.yml
+- aid: plangrid:plangrid-oauth-api
+  name: PlanGrid OAuth API
+  description: The Oauth API from PlanGrid — 2 operation(s) for oauth.
+  humanURL: https://developer.plangrid.com/
+  baseURL: https://io.plangrid.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/plangrid-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://developer.plangrid.com/
+  - type: APIReference
+    url: https://developer.plangrid.com/reference/introduction
+  - type: GettingStarted
+    url: https://developer.plangrid.com/reference/getting-started-1
+  - type: Authentication
+    url: authentication/plangrid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plangrid-scopes.yml
+  - type: ChangeLog
+    url: changelog/plangrid-changelog.yml
+- aid: plangrid:plangrid-projects-api
+  name: PlanGrid Projects API
+  description: The Projects API from PlanGrid — 2 operation(s) for projects.
+  humanURL: https://developer.plangrid.com/
+  baseURL: https://io.plangrid.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/plangrid-projects-api-openapi.yml
+  - type: Documentation
+    url: https://developer.plangrid.com/
+  - type: APIReference
+    url: https://developer.plangrid.com/reference/introduction
+  - type: GettingStarted
+    url: https://developer.plangrid.com/reference/getting-started-1
+  - type: Authentication
+    url: authentication/plangrid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plangrid-scopes.yml
+  - type: ChangeLog
+    url: changelog/plangrid-changelog.yml
+- aid: plangrid:plangrid-rate-limits-api
+  name: PlanGrid Rate Limits API
+  description: The Rate Limits API from PlanGrid — 1 operation(s) for rate limits.
+  humanURL: https://developer.plangrid.com/
+  baseURL: https://io.plangrid.com
+  tags:
+  - Rate Limits
+  properties:
+  - type: OpenAPI
+    url: openapi/plangrid-rate-limits-api-openapi.yml
+  - type: Documentation
+    url: https://developer.plangrid.com/
+  - type: APIReference
+    url: https://developer.plangrid.com/reference/introduction
+  - type: GettingStarted
+    url: https://developer.plangrid.com/reference/getting-started-1
+  - type: Authentication
+    url: authentication/plangrid-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plangrid-scopes.yml
+  - type: ChangeLog
+    url: changelog/plangrid-changelog.yml
 x-enrichment:
   date: '2026-07-20'
   status: enriched

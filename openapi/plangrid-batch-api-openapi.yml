@@ -1,0 +1,78 @@
+openapi: 3.2.0
+info:
+  title: No API Explorer Batch API
+  version: '1.22'
+servers:
+- url: https://io.plangrid.com
+security:
+- {}
+tags:
+- name: Batch
+paths:
+  /batch:
+    post:
+      summary: Send Batch Request
+      description: ''
+      operationId: send-batch-request
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": [\n    {\n      \"status_code\": 200,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"uid\\\": \\\"43b198bb-d4f9-c302-9173-271050e424b7\\\", \\\"name\\\": \\\"1000 Issues\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Request body must be a JSON encoded string.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Request must contain at least one field.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Unsupported fields are not allowed in request.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Method required to send batch request.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Path required to send batch request.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Path must begin with a '/'.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Headers must be an array of objects with 'name' and 'value'.\\\"}\"\n    },\n    {\n      \"status_code\": 400,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Unsupported fields are not allowed in headers.\\\"}\"\n    },\n    {\n      \"status_code\": 500,\n      \"headers\": [\n        {\n          \"name\": \"connection\",\n          \"value\": \"close\",\n        },\n        {\n          \"name\": \"content-type\",\n          \"value\": \"application/json\"\n        }\n      ],\n      \"body\": \"{\\\"message\\\": \\\"Sorry, PlanGrid's system had an error and the team has been notified. If this happens again, please contact support@plangrid.com.\\\"}\"\n    }\n  ]\n}"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                No Requests:
+                  value: '{ "message": "There must be at least one batch request." }'
+                Too Many Requests:
+                  value: '{ "message": "The number of batch requests (:number_of_requests) must be less than or equal to 50." }'
+                Not An Array:
+                  value: '{ "message": "JSON body must be an array." }'
+              schema:
+                oneOf:
+                - title: No Requests
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: There must be at least one batch request.
+                - title: Too Many Requests
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: The number of batch requests (:number_of_requests) must be less than or equal to 50.
+                - title: Not An Array
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      example: JSON body must be an array.
+      deprecated: false
+      tags:
+      - Batch
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://developer.plangrid.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://developer.plangrid.com/reference/create-project.md
+  - https://developer.plangrid.com/reference/get-rfi-return-message-in-a-project.md
+  - https://developer.plangrid.com/reference/get-user-profile.md
+  - https://developer.plangrid.com/reference/list-all-projects.md
+  - https://developer.plangrid.com/reference/retrieve-access-token.md
+  - https://developer.plangrid.com/reference/retrieve-authorization-code.md
+  - https://developer.plangrid.com/reference/retrieve-rate-limits.md
+  - https://developer.plangrid.com/reference/send-batch-request.md
+  merge:
+    pages: 8
+    deduped: 0
+    conflicts_kept_first: 0

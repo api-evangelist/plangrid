@@ -1,0 +1,132 @@
+openapi: 3.2.0
+info:
+  title: No API Explorer OAuth API
+  version: '1.22'
+servers:
+- url: https://io.plangrid.com
+security:
+- {}
+tags:
+- name: OAuth
+paths:
+  /oauth/authorize:
+    get:
+      summary: Retrieve Authorization Code
+      description: Redirect the user to PlanGrid to authorize the application. The first of a multi-step process for authenticating with OAuth 2.0. Upon user authorization, an authorization or token code will be provided based on the grant type.
+      operationId: retrieve-authorization-code
+      parameters:
+      - name: client_id
+        in: query
+        description: A unique identifier for your application provided by PlanGrid.
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        description: Specify what grant type the endpoint returns. Use `code` for the authorization code flow or `token` for the implicit grant flow.
+        required: true
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: An arbitrary string that will be included in the response. This can be used to confirm that the request originated from your application.
+        required: true
+        schema:
+          type: string
+      - name: scope
+        in: query
+        description: Specify a group of resources an application can request access to. See [OAuth Scopes](https://developer.plangrid.com/docs/oauth-scopes) for details.
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        description: Specify a URL where the response will be redirected. Must match a value in the whitelist for this client.
+        schema:
+          type: string
+      deprecated: false
+      security: []
+      tags:
+      - OAuth
+  /oauth/token:
+    post:
+      summary: Retrieve Access Token
+      description: Once you have the `authorization_code` or a `refresh_token`, you can request the access token that will allow your application to perform API requests on behalf of the user.
+      operationId: retrieve-access-token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+              properties:
+                client_id:
+                  type: string
+                  description: A unique identifier for your application provided by PlanGrid.
+                client_secret:
+                  type: string
+                  description: A unique string for your application provided by PlanGrid.
+                grant_type:
+                  type: string
+                  description: Type of request. Can be either `authorization_code` or `refresh_token`.
+                code:
+                  type: string
+                  description: Required if `grant_type` is set to `authorization_code`. Must be the authorization code acquired from the `/oauth/authorize` endpoint.
+                refresh_token:
+                  type: string
+                  description: Required if `grant_type` is set to `refresh_token`. Must be the `refresh_token` provided with access token.
+                redirect_uri:
+                  type: string
+                  description: If a `redirect_uri` was provided when requesting user authorization, this must match that value.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"refresh_token\": \"a95b3fadb31941fe9b0a74cb71b721d\",\n  \"access_token\": \"oauth_8107f78b473e46dab2406cd4db3bb366\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\":  604800,\n  \"scope\": \"write:projects\"\n}"
+              schema:
+                type: object
+                properties:
+                  refresh_token:
+                    type: string
+                    example: a95b3fadb31941fe9b0a74cb71b721d
+                  access_token:
+                    type: string
+                    example: oauth_8107f78b473e46dab2406cd4db3bb366
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 604800
+                    default: 0
+                  scope:
+                    type: string
+                    example: write:projects
+      deprecated: false
+      tags:
+      - OAuth
+x-readme-fauxas: true
+x-provenance:
+  method: searched
+  source: https://developer.plangrid.com/reference
+  harvested: '2026-10-14'
+  tool: harvest-readme-openapi.py
+  note: Assembled verbatim from the OpenAPI definition ReadMe embeds in each operation page of the provider's developer portal; paths and components merged by API title, nothing authored.
+  assembled_from:
+  - https://developer.plangrid.com/reference/create-project.md
+  - https://developer.plangrid.com/reference/get-rfi-return-message-in-a-project.md
+  - https://developer.plangrid.com/reference/get-user-profile.md
+  - https://developer.plangrid.com/reference/list-all-projects.md
+  - https://developer.plangrid.com/reference/retrieve-access-token.md
+  - https://developer.plangrid.com/reference/retrieve-authorization-code.md
+  - https://developer.plangrid.com/reference/retrieve-rate-limits.md
+  - https://developer.plangrid.com/reference/send-batch-request.md
+  merge:
+    pages: 8
+    deduped: 0
+    conflicts_kept_first: 0
