@@ -189,6 +189,8 @@ apis:
   humanURL: https://developer.plangrid.com/
   baseURL: https://io.plangrid.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
@@ -211,6 +213,8 @@ apis:
   humanURL: https://developer.plangrid.com/
   baseURL: https://io.plangrid.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
