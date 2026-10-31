@@ -1,4 +1,4 @@
-# PlanGrid *
+# PlanGrid
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,6 +64,123 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-PlanGrid * is a company surfaced as a portfolio company of gv, initialized-capital, y-combinator and added to the API Evangelist network as a stub for enrichment. Sector: enterprise. This profile is a lead awaiting the enrichment pipeline.
+PlanGrid is a construction productivity platform (now part of Autodesk Construction Cloud) that gives field and office teams access to construction drawings, sheets, documents, photos, RFIs, submittals, field reports, tasks, and punch lists on web and mobile. The PlanGrid API is a REST API served from io.plangrid.com that lets developers programmatically manage projects, annotations, comments, documents, photos, sheets and versions, snapshots, RFIs, submittal packages, field reports, tasks and task lists, roles, and project team users. It supports OAuth 2.0 (authorization code and implicit grants) as well as HTTP Basic API-key authentication, media-type versioning via the Accept header, cursor-based pagination, batch requests, and multi-step file upload workflows for PDFs, photos, and documents.
 
-Backed by: gv, initialized-capital, y-combinator — http://plangrid.com
+**Areas:** Company · Enterprise · Construction · Construction Technology · Project Management · Field Reports · Documents · RFIs · REST API · Autodesk
+
+## PlanGrid on APIs.io
+
+Everything profiled for PlanGrid is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/plangrid/](https://apis.io/providers/plangrid/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [PlanGrid Batch API](https://apis.io/apis/plangrid/plangrid-batch-api/) — The Batch API from PlanGrid — 1 operation(s) for batch.
+- [PlanGrid Me API](https://apis.io/apis/plangrid/plangrid-me-api/) — The Me API from PlanGrid — 1 operation(s) for me.
+- [PlanGrid OAuth API](https://apis.io/apis/plangrid/plangrid-oauth-api/) — The Oauth API from PlanGrid — 2 operation(s) for oauth.
+- [PlanGrid Projects API](https://apis.io/apis/plangrid/plangrid-projects-api/) — The Projects API from PlanGrid — 2 operation(s) for projects.
+- [PlanGrid Rate Limits API](https://apis.io/apis/plangrid/plangrid-rate-limits-api/) — The Rate Limits API from PlanGrid — 1 operation(s) for rate limits.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [plangrid](https://apis.io/servers/plangrid/plangrid/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Plangrid Agentic Access](https://apis.io/agentic-access/plangrid/plangrid-agentic-access/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [PlanGrid API Rules](https://apis.io/rules/plangrid/plangrid-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Plangrid Authentication](https://apis.io/security/plangrid/plangrid-authentication/)
+- [Plangrid Domain Security](https://apis.io/security/plangrid/plangrid-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Plangrid Scopes](https://apis.io/scopes/plangrid/plangrid-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://construction.autodesk.com/products/plangrid/)
+- [Documentation](https://developer.plangrid.com/)
+- [Getting started](https://developer.plangrid.com/reference/getting-started-1)
+- [API reference](https://developer.plangrid.com/reference/introduction)
+- [Pricing](https://construction.autodesk.com/pricing/)
+- [Support](https://help.plangrid.com/)
+- [Blog](https://blogs.autodesk.com/blog/test/)
+- [Trust centre](https://www.autodesk.com/trust/overview)
+- [Privacy policy](https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement?_ga=2.254122760.1430555354.1713426746-2055187556.1708148316)
+- [GitHub](https://github.com/plangrid)
+
+## API Evangelist rating
+
+**Kin Score 40.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 67.9 |
+| Contract quality | 46.4 |
+| Contract governance | 18.2 |
+| Operational transparency | 22.4 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 28.9 |
+
+**Agent readiness 29.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/plangrid/](https://apis.io/providers/plangrid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for PlanGrid: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/plangrid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
